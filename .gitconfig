@@ -1,3 +1,5 @@
 [user]
 	name = Dave R
 	email = dave@rouser.org
+[core]
+	editor = subl -n -w
