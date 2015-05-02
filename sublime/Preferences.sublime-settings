@@ -1,0 +1,15 @@
+{
+	"always_show_minimap_viewport": true,
+	"auto_complete_commit_on_tab": true,
+	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
+	"drag_text": false,
+	"font_face": "DroidSansMono",
+	"font_size": 14,
+	"highlight_line": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"translate_tabs_to_spaces": false,
+	"word_wrap": false
+}
