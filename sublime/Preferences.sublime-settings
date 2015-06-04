@@ -1,7 +1,7 @@
 {
 	"always_show_minimap_viewport": true,
 	"auto_complete_commit_on_tab": true,
-	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
+	"color_scheme": "Packages/Solarized-dark.tmTheme",
 	"drag_text": false,
 	"font_face": "DroidSansMono",
 	"font_size": 14,
@@ -11,5 +11,8 @@
 		"Vintage"
 	],
 	"translate_tabs_to_spaces": false,
-	"word_wrap": false
+	"word_wrap": false,
+	"hot_exit": false,
+	"remember_open_files": false,
+	"close_windows_when_empty": true
 }
