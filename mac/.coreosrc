@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# create a coreos config drive
+function make-configdrive() {
+	if [ $# -ne 2 ]
+	then
+		echo 'Usage : make-configdrive ISO_NAME FROM_PATH'
+	else
+		# remove the .iso if it already exists
+		[[ -f $1 ]] && rm -f $1
+
+		# generate the new .iso
+		hdiutil makehybrid -iso -joliet -default-volume-name config-2 -o $1 $2
+
+		# copy the generated iso to the vm directory
+		[[ -f $HOME/vm/$1 ]] && rm -f $HOME/vm/$1
+		cp $1 $HOME/vm/$1
+	fi
+}
