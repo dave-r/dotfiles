@@ -9,4 +9,3 @@ apt-get install golang
 # set up go path
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/dev/go
-
