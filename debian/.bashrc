@@ -57,7 +57,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n$ \[\033[0m\]'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -65,8 +66,8 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+xterm*|rxvt*|screen-256color*)
+    PS1="\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n$ \[\033[0m\]"
     ;;
 *)
     ;;
@@ -81,7 +82,7 @@ if [ -x /usr/bin/dircolors ]; then
 
     #alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    #alias  egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -101,6 +102,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -114,3 +116,5 @@ fi
 
 # load dir colors
 eval `dircolors $HOME/.dircolors`
+
+export GOPATH=$HOME/dev/go
