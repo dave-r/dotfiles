@@ -120,3 +120,7 @@ fi
 # TODO : move these to their own file?
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 export PATH=$PATH:$JAVA_HOME
+
+export GRADLE_HOME=/usr/share/gradle
+export PATH=$PATH:$GRADLE_HOME
+
