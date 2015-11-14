@@ -33,3 +33,5 @@ sudo ./setup-sudo.sh
 mkdir $HOME/.fonts
 cp -r $SCRIPT_DIR/../fonts/* $HOME/.fonts/
 
+# set up dir colors
+[[ -f $SCRIPT_DIR/../.dircolors ]] && cp $SCRIPT_DIR/../.dircolors $HOME/
