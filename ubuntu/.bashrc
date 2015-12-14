@@ -124,3 +124,6 @@ export PATH=$PATH:$JAVA_HOME
 export GRADLE_HOME=/usr/share/gradle
 export PATH=$PATH:$GRADLE_HOME
 
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOPATH/bin
+
