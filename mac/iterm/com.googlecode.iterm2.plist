@@ -506,14 +506,16 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dev/dotfiles/iterm</string>
+	<string>~/dev/dotfiles/mac/iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
+	<false/>
+	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
 	<key>NSTableView Columns KeyBingingTable</key>
 	<array>
@@ -526,31 +528,23 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>302</string>
+		<string>322</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
-	<key>NSToolbar Configuration Terminal Toolbar</key>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
 	<dict>
-		<key>TB Display Mode</key>
-		<integer>1</integer>
-		<key>TB Icon Size Mode</key>
-		<integer>1</integer>
 		<key>TB Is Shown</key>
-		<integer>0</integer>
-		<key>TB Size Mode</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1163 575 445 103 0 0 1920 1177 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>208 663 924 485 0 0 1920 1177 </string>
+	<string>754 526 606 456 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>222 213 1410 938 0 0 1920 1177 </string>
+	<string>75 36 1610 951 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>453 74 1410 938 0 0 1920 1177 </string>
+	<string>253 55 1610 951 0 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_C45BB9AB-2F3B-4842-8DFF-1742BB77B7B9</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -747,7 +741,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>175</integer>
+			<integer>160</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -1096,7 +1090,7 @@
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
-			<real>0.12958332896232605</real>
+			<real>0.061953123658895493</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -1106,7 +1100,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Hack-Regular 14</string>
+			<string>Hack-Regular 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1114,7 +1108,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>48</integer>
+			<integer>42</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1258,7 +1252,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.069875650107860565</real>
+			<real>0.032888777554035187</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -1281,10 +1275,14 @@
 			<string>/Users/dave</string>
 		</dict>
 	</array>
+	<key>NoSyncInstallationId</key>
+	<string>3B949DCA-141A-423C-B49E-DBA7EE2E24F4</string>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>487098588.59382099</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>453340198.97073799</real>
+	<real>478116396.98607099</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>465592635.67794698</real>
+	<real>486001046.760203</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1331,9 +1329,9 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/dave/dev/dotfiles/iterm</string>
+	<string>/Users/dave/dev/dotfiles/mac/iterm</string>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>
@@ -1342,12 +1340,14 @@
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
+	<key>SUFeedAlternateAppNameKey</key>
+	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=48</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-10-04T20:47:44Z</date>
+	<date>2016-06-10T12:33:57Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1372,7 +1372,7 @@
 	<integer>10</integer>
 	<key>ToolbeltTools</key>
 	<array>
-		<string>Profiles</string>
+		<string>Recent Directories</string>
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
@@ -1399,6 +1399,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.1.1</string>
+	<string>3.0.0</string>
 </dict>
 </plist>
