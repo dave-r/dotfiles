@@ -1,26 +1,17 @@
 #!/bin/bash
 
-export DOCKER_ADMIN_HOST=tcp://admin-host:2376
-export DOCKER_PROD_HOST=tcp://prod-host:2376
-export DOCKER_DEV_HOST=tcp://dev-host:2376
-export DOCKER_LOCAL_HOST=tcp://rancher-mac-host:2376
-
-export DOCKER_HOST=$DOCKER_ADMIN_HOST
-export DOCKER_TLS_VERIFY=1
-
-export RANCHER_URL=http://esxi-host:8080/
-
-# ssh to rancher hosts
-alias sshesxi="ssh rancher@esxi-host"
-alias sshadmin="ssh rancher@admin-host"
-alias sshprod="ssh rancher@prod-host"
-alias sshdev="ssh rancher@dev-host"
+# set up docker environment
+# the 'correct' way of doing this is to do 'eval $(docker-machine env)'
+# however, if we haven't yet run the docker quickstart terminal then the docker host vm isn't running
+# so the command can't find a docker daemon and fails.
+# So instead we use 'hardcoded' values.  docker still won't work w/out running the quickstart terminal, but
+# at least this way, once we run the quickstart terminal, docker should work in any terminal windows we happened to open before running the quickstart terminal.
+# export DOCKER_HOST=tcp://192.168.99.100:2376
+# export DOCKER_MACHINE_NAME=rancher-host
+# export DOCKER_TLS_VERIFY=1
+# export DOCKER_CERT_PATH=/Users/dave/.docker/machine/machines/default
 
 # set some docker aliases
-alias adock="docker -H tcp://admin-host:2376 --tlsverify=true --tlscacert=$HOME/.docker/ca-adminhost.pem --tlscert=$HOME/.docker/cert-adminhost.pem --tlskey=$HOME/.docker/key-adminhost.pem"
-alias pdock="docker -H tcp://prod-host:2376 --tlsverify=true --tlscacert=$HOME/.docker/ca-prodhost.pem --tlscert=$HOME/.docker/cert-prodhost.pem --tlskey=$HOME/.docker/key-prodhost.pem"
-alias ddock="docker -H tcp://dev-host:2376 --tlsverify=true --tlscacert=$HOME/.docker/ca-devhost.pem --tlscert=$HOME/.docker/cert-devhost.pem --tlskey=$HOME/.docker/key-devhost.pem"
-alias ldock="docker -H tcp://rancher-mac-host:2376 --tlsverify=true --tlscacert=$HOME/.docker/ca-ranchermachost.pem --tlscert=$HOME/.docker/cert-ranchermachost.pem --tlskey=$HOME/.docker/key-ranchermachost.pem"
 alias dbuild="docker build"
 alias dstart="docker start"
 alias dstop="docker stop"
@@ -32,11 +23,13 @@ alias dimages="docker images"
 alias drmi="docker rmi"
 alias dcbuild="docker-compose build"
 alias dcup="docker-compose up"
+alias dcupb="docker-compose up --build"
 alias dcstop="docker-compose stop"
 alias dclogs="docker-compose logs"
 alias dcrm="docker-compose rm"
 alias dmls="docker-machine ls"
 alias dmstop="docker-machine stop"
+alias dmssh="docker-machine ssh"
 
 # remove all unused images
 function dcleanall {
@@ -51,59 +44,14 @@ function dbash {
 	docker exec -it $1 /bin/bash
 }
 
+# set docker-machine environment variables for a host
+function dmenv {
+	eval "$(docker-machine env $1)"
+}
+
 # start a docker host and update environment variables
 function dmstart {
 	docker-machine start $1
 	eval "$(docker-machine env $1)"
 }
 
-# change docker client to point to admin host
-function denv-admin {
-	export DOCKER_HOST=$DOCKER_ADMIN_HOST
-
-	# set up the keys
-	cp -f $HOME/.docker/ca-key-adminhost.pem $HOME/.docker/ca-key.pem
-	cp -f $HOME/.docker/ca-adminhost.pem $HOME/.docker/ca.pem
-	cp -f $HOME/.docker/cert-adminhost.pem $HOME/.docker/cert.pem
-	cp -f $HOME/.docker/key-adminhost.pem $HOME/.docker/key.pem
-
-	echo "docker now points to $DOCKER_HOST"
-}
-
-# change docker client to point to prod host
-function denv-prod {
-	export DOCKER_HOST=$DOCKER_PROD_HOST
-
-	# set up the keys
-	cp -f $HOME/.docker/ca-key-prodhost.pem $HOME/.docker/ca-key.pem
-	cp -f $HOME/.docker/ca-prodhost.pem $HOME/.docker/ca.pem
-	cp -f $HOME/.docker/cert-prodhost.pem $HOME/.docker/cert.pem
-	cp -f $HOME/.docker/key-prodhost.pem $HOME/.docker/key.pem
-
-	echo "docker now points to $DOCKER_HOST"
-}
-
-# change docker client to point to dev host
-function denv-dev {
-	export DOCKER_HOST=$DOCKER_DEV_HOST
-
-	# set up the keys
-	cp -f $HOME/.docker/ca-key-devhost.pem $HOME/.docker/ca-key.pem
-	cp -f $HOME/.docker/ca-devhost.pem $HOME/.docker/ca.pem
-	cp -f $HOME/.docker/cert-devhost.pem $HOME/.docker/cert.pem
-	cp -f $HOME/.docker/key-devhost.pem $HOME/.docker/key.pem
-
-	echo "docker now points to $DOCKER_HOST"
-}
-
-function denv-local {
-	export DOCKER_HOST=$DOCKER_LOCAL_HOST
-
-	# set up the keys
-	cp -f $HOME/.docker/ca-key-ranchermachost.pem $HOME/.docker/ca-key.pem
-	cp -f $HOME/.docker/ca-ranchermachost.pem $HOME/.docker/ca.pem
-	cp -f $HOME/.docker/cert-ranchermachost.pem $HOME/.docker/cert.pem
-	cp -f $HOME/.docker/key-ranchermachost.pem $HOME/.docker/key.pem
-
-	echo "docker now points to $DOCKER_HOST"
-}
