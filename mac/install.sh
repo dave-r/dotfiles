@@ -2,28 +2,28 @@
 
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
-cd ~
+cd $HOME
 
 # 1st, backup existing dotfiles
-tar -cf ~/dotfiles-backup.tar ~/.bashrc ~/.bash_profile ~/.dockerrc ~/.gitconfig
+#tar -cf $HOME/dotfiles-backup.tar $HOME/.bashrc $HOME/.bash_profile $HOME/.dockerrc $HOME/.gitconfig
 
 # remove existing dotfiles
-[[ -f ~/.bashrc ]] && rm -f ~/.bashrc
-[[ -f ~/.bash_profile ]] && rm -f ~/.bash_profile
-[[ -f ~/.dockerrc ]] && rm -f ~/.dockerrc
-[[ -f ~/.coreosrc ]] && rm -f ~/.coreosrc
-[[ -f ~/.gitconfig ]] && rm -f ~/.gitconfig
+[[ -f $HOME/.bashrc ]] && rm -f $HOME/.bashrc
+[[ -f $HOME/.bash_profile ]] && rm -f $HOME/.bash_profile
+[[ -f $HOME/.dockerrc ]] && rm -f $HOME/.dockerrc
+[[ -f $HOME/.coreosrc ]] && rm -f $HOME/.coreosrc
+[[ -f $HOME/.gitconfig ]] && rm -f $HOME/.gitconfig
 
 # link dotfiles
-ln -s $SCRIPT_DIR/mac/.bashrc ~/.bashrc
-ln -s $SCRIPT_DIR/mac/.bash_profile ~/.bash_profile
-ln -s $SCRIPT_DIR/mac/.dockerrc ~/.dockerrc
-ln -s $SCRIPT_DIR/mac/.coreosrc ~/.coreosrc
-ln -s $SCRIPT_DIR/git/.gitconfig ~/.gitconfig
+ln -s $SCRIPT_DIR/.bashrc $HOME/.bashrc
+ln -s $SCRIPT_DIR/.bash_profile $HOME/.bash_profile
+ln -s $SCRIPT_DIR/.dockerrc $HOME/.dockerrc
+ln -s $SCRIPT_DIR/.coreosrc $HOME/.coreosrc
+ln -s $SCRIPT_DIR/../git/.gitconfig $HOME/.gitconfig
 
 # set permissions
-chmod 700 ~/.bashrc
-chmod 700 ~/.bash_profile
-chmod 700 ~/.dockerrc
-chmod 700 ~/.coreosrc
-chmod 700 ~/.gitconfig
+chmod 700 $HOME/.bashrc
+chmod 700 $HOME/.bash_profile
+chmod 700 $HOME/.dockerrc
+chmod 700 $HOME/.coreosrc
+chmod 700 $HOME/.gitconfig
