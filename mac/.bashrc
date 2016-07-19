@@ -1,6 +1,7 @@
 # set some useful aliases
 alias lsal='ls -al'
 alias edit=subl
+alias idea='open /Applications/IntelliJ\ IDEA\ CE.app/'
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
