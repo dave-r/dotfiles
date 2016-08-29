@@ -2,7 +2,7 @@
 URxvt*buffered: true
 URxvt*cursorBlink: false
 URxvt*underlineColor: yellow
-URxvt*font:  xft:inconsolata:size=10:antialias=true
+URxvt*font:  xft:Hack:size=14:antialias=true
 URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false
@@ -53,7 +53,7 @@ URxvt.matcher.button: 1
 #define S_green         #859900
 
 *background:            S_base03
-*foreground:            S_base00
+*foreground:            S_base0
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1
