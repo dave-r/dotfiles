@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color|rxvt-unicode) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -57,7 +57,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n\xE2\xA4\x87 \[\033[0m\]'
+    #PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n\xE2\xA4\x87 \[\033[0m\]'
+    PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n-> \[\033[0m\]'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -66,7 +67,8 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n\xE2\xA4\x87 \[\033[0m\]'
+    #PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n\xE2\xA4\x87 \[\033[0m\]'
+    PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n-> \[\033[0m\]'
     ;;
 *)
     ;;
