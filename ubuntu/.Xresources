@@ -2,7 +2,7 @@
 URxvt*buffered: true
 URxvt*cursorBlink: false
 URxvt*underlineColor: yellow
-URxvt*font:  xft:Hack:size=14:antialias=true
+URxvt*font:  xft:Hack:size=12:antialias=true
 URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false
