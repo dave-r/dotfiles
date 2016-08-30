@@ -8,3 +8,8 @@ indent_size = 4
 
 [*.{java,js,html,css}]
 charset = utf-8
+
+[*.yml]
+indent_style = space
+indent_size = 2
+

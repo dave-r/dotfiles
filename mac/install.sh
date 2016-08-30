@@ -13,6 +13,7 @@ cd $HOME
 [[ -f $HOME/.dockerrc ]] && rm -f $HOME/.dockerrc
 [[ -f $HOME/.coreosrc ]] && rm -f $HOME/.coreosrc
 [[ -f $HOME/.gitconfig ]] && rm -f $HOME/.gitconfig
+[[ -f $HOME/.gorc ]] && rm -f $HOME/.gorc
 
 # link dotfiles
 ln -s $SCRIPT_DIR/.bashrc $HOME/.bashrc
@@ -20,6 +21,7 @@ ln -s $SCRIPT_DIR/.bash_profile $HOME/.bash_profile
 ln -s $SCRIPT_DIR/.dockerrc $HOME/.dockerrc
 ln -s $SCRIPT_DIR/.coreosrc $HOME/.coreosrc
 ln -s $SCRIPT_DIR/../git/.gitconfig $HOME/.gitconfig
+ln -s $SCRIPT_DIR/.gorc $HOME/.gorc
 
 # set permissions
 chmod 700 $HOME/.bashrc
@@ -27,3 +29,4 @@ chmod 700 $HOME/.bash_profile
 chmod 700 $HOME/.dockerrc
 chmod 700 $HOME/.coreosrc
 chmod 700 $HOME/.gitconfig
+chmod 700 $HOME/.gorc
