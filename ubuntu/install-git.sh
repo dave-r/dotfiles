@@ -4,14 +4,15 @@
 
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
-# backup existing dotfile
-[[ -f ~/.gitconfig ]] && mv ~/.gitconfig ~/.backup-gitconfig-backup
-
 # install
 # commented out because git has to already be installed to retrieve this file from github!
 # no need to install again, just configure
 # apt-get install git
 
-# link settings dotfile
-ln -s $SCRIPT_DIR/../git/.gitconfig ~/.gitconfig
-chmod 700 ~/.gitconfig
+# link git dot file
+if [[ -f $SCRIPT_DIR/../git/.gitconfig ]]
+    then
+        [[ -f $HOME/.gitconfig ]] && mv $HOME/.gitconfig $HOME/.backup-gitconfig-backup
+            ln -s $SCRIPT_DIR/../git/.gitconfig $HOME/.gitconfig
+            chmod 700 $HOME/.gitconfig
+fi

@@ -9,14 +9,13 @@ SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 # install docker
 curl -sSL https://get.docker.com/ | sh
 
-# remove existing dotfiles
-[[ -f $HOME/.dockerrc ]] && mv $HOME/.dockerrc $HOME/.backup-dockerrc-backup
-
-# link dotfiles
-ln -s $SCRIPT_DIR/../docker/.dockerrc $HOME/.dockerrc
-
-# set permissions
-chmod 700 $HOME/.dockerrc
+# link docker dot file
+if [[ -f $SCRIPT_DIR/../docker/.dockerrc ]]
+    then
+        [[ -f $HOME/.dockerrc ]] && mv $HOME/.dockerrc $HOME/.backup-dockerrc-backup
+        ln -s $SCRIPT_DIR/../docker/.dockerrc $HOME/.dockerrc
+        chmod 700 $HOME/.dockerrc
+fi
 
 # add user to docker group
 sudo usermod -aG docker $USERNAME
