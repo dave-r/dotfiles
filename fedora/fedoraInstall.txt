@@ -1,0 +1,42 @@
+fedora 24 net install
+base environment
+    - minimal install
+add-ons
+    - guest agents
+    - standard
+    - c development tools and libraries
+    - editors
+
+post install setup :
+install git
+    - sudo dnf install git-core
+
+generate ssh key
+    - ssh-keygen -t rsa -b 4096 -C "me@myemail.com"
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+
+install vbox guest additions
+    - sudo mkdir /media/cdrom
+    - sudo mount /dev/cdrom /media/cdrom
+    - sudo dnf install kernel-devel-$(uname -r) kernel-headers-$(uname -r) gcc
+    - sudo /media/cdrom/VBoxLinuxAdditions.run
+
+mount share
+    - sudo mkdir /vmshare
+    - sudo mount -t vboxsf vmshare /vmshare
+
+copy rsa pub key to vmshare
+    - sudo cp ~/.ssh/id_rsa.pub /vmshare/id_rsa.pub.fedora
+
+add pub key to github
+
+clone dotfiles repo
+    - mkdir -p ~/dev/dotfiles
+    - cd ~/dev
+    - git clone git@github.com:dave-r/dotfiles.git
+
+
+
+
+
