@@ -25,13 +25,6 @@ if [[ -f $SCRIPT_DIR/.bash_aliases ]]
         chmod 700 $HOMEDIR/.bash_aliases      
 fi
 
-if [[ -f $SCRIPT_DIR/.Xresources ]]
-    then 
-        [[ -f $HOMEDIR/.Xresources ]] && mv $HOMEDIR/.Xresources $HOMEDIR/.backup-xresources-backup
-        ln -s $SCRIPT_DIR/.Xresources $HOMEDIR/.Xresources
-        chmod 700 $HOMEDIR/.Xresources
-fi
-
 # install fonts
 if [[ -d $SCRIPT_DIR/../fonts ]]
     then
