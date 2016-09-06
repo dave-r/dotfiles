@@ -7,16 +7,23 @@
 # get the directory where the script is located
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
+# get the user name (not the root user running the script)
+username=""
+. $SCRIPT_DIR/getusername.sh
+getuser
+
+HOMEDIR="/home/$username"
+
 # install i3
-dnf install i3
+dnf -y install i3
 
 # make sure the directory exists
-[[ ! -f $HOME/.config/i3 ]] && mkdir -p $HOME/.config/i3
+[[ ! -f $HOMEDIR/.config/i3 ]] && mkdir -p $HOMEDIR/.config/i3
 
 # backup existing config files 
-[[ -f $HOME/.config/i3/config ]] && mv $HOME/.config/i3/config $HOME/.config/i3/.backup-config-backup
-[[ -f $HOME/.config/i3/i3status.conf ]] && mv $HOME/.config/i3/status.conf $HOME/.config/i3/.backup-i3status.conf-backup
+[[ -f $HOMEDIR/.config/i3/config ]] && mv $HOMEDIR/.config/i3/config $HOMEDIR/.config/i3/.backup-config-backup
+[[ -f $HOMEDIR/.config/i3/i3status.conf ]] && mv $HOMEDIR/.config/i3/status.conf $HOME/.config/i3/.backup-i3status.conf-backup
 
-ln -s $SCRIPT_DIR/../i3/config $HOME/.config/i3/config
-ln -s $SCRIPT_DIR/../i3/i3status.conf $HOME/.config/i3/i3status.conf
+ln -s $SCRIPT_DIR/../i3/config $HOMEDIR/.config/i3/config
+ln -s $SCRIPT_DIR/../i3/i3status.conf $HOMEDIR/.config/i3/i3status.conf
 
