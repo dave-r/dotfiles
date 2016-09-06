@@ -14,6 +14,8 @@ getuser
 
 HOMEDIR="/home/$username"
 
+echo $HOMEDIR
+
 # install i3
 dnf -y install i3
 
@@ -23,7 +25,9 @@ dnf -y install i3
 # backup existing config files 
 [[ -f $HOMEDIR/.config/i3/config ]] && mv $HOMEDIR/.config/i3/config $HOMEDIR/.config/i3/.backup-config-backup
 [[ -f $HOMEDIR/.config/i3/i3status.conf ]] && mv $HOMEDIR/.config/i3/status.conf $HOME/.config/i3/.backup-i3status.conf-backup
+[[ -f $HOMEDIR/.xinitrc ]] && mv $HOMEDIR/.xinitrc $HOMEDIR/.backup-xinitrc-backup
 
 ln -s $SCRIPT_DIR/../i3/config $HOMEDIR/.config/i3/config
 ln -s $SCRIPT_DIR/../i3/i3status.conf $HOMEDIR/.config/i3/i3status.conf
+ln -s $SCRIPT_DIR/../i3/.xinitrc $HOMEDIR/.xinitrc
 
