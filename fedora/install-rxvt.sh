@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf install rxvt-unicode-256color
+dnf -y install rxvt-unicode-256color
 
 # set up conf
 if [[ -f $SCRIPT_DIR/.Xresources ]]
