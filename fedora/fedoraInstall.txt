@@ -22,6 +22,10 @@ clone dotfiles repo
 install i3
     - dotfiles/fedora/install-i3.sh
 
+install sublime
+	- dotfiles/fedora/install-sublime.sh
+
+
 
 
 
