@@ -12,12 +12,15 @@ HOMEDIR="/home/$username"
 
 setup_sudo() {
 	# add user to sudoers
-	adduser "$username" sudo
+	# adduser "$username" sudo
 
 	# add user to systemd groups
 	# then you wont need sudo to view logs and shit
 	gpasswd -a "$username" systemd-journal
 	gpasswd -a "$username" systemd-network
+
+	# backup sudoers file
+	cp /etc/sudoers /etc/.backup-sudoers-backup
 
 	# add go path to secure path
 	{ \
