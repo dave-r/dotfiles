@@ -14,6 +14,7 @@ generate ssh key
 
 add pub key to github
 
+
 clone dotfiles repo
     - mkdir -p ~/dev/dotfiles
     - cd ~/dev
@@ -22,6 +23,12 @@ clone dotfiles repo
 install i3
     - dotfiles/fedora/install-i3.sh
 
+setup sudo
+    - dotfiles/fedora/setup-sudo.sh
+
+install rxvt
+    - dotfiles/fedora/install-rxvt.sh
+    
 install sublime
 	- dotfiles/fedora/install-sublime.sh
 
