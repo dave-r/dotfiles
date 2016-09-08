@@ -10,6 +10,9 @@ getuser
 
 HOMEDIR="/home/$username"
 
+# update packages
+dnf -y update
+
 # link bash dot files
 if [[ -f $SCRIPT_DIR/.bashrc ]]
     then
