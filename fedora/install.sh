@@ -44,8 +44,15 @@ fi
 
 # set up editor config
 if [[ -f $SCRIPT_DIR/../.editorconfig ]]
-then
+    then
     [[ -f $HOMEDIR/.editorconfig ]] && mv $HOMEDIR/.editorconfig $HOMEDIR/.backup-editorconfig-backup
     ln -s $SCRIPT_DIR/../.editorconfig $HOMEDIR/.editorconfig
+fi
+
+# link git config
+if [[ -f $SCRIPT_DIR/../git/.gitconfig ]]
+    then
+        [[ -f $HOMEDIR/.gitconfig ]] && mv $HOMEDIR/.gitconfig $HOMEDIR/.backup-gitconfig-backup
+        ln -s $SCRIPT_DIR/../git/.gitconfig $HOMEDIR/.gitconfig
 fi
 
