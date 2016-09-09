@@ -38,6 +38,11 @@ install docker
 install chrome
     - dotfiles/fedora/install-chrome.sh
 
+install go
+    - dotfiles/fedora/install-go.sh
+
+install java
+    - dotfiles/fedora/install-java.sh
 
 
 
