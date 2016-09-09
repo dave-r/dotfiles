@@ -32,6 +32,12 @@ install rxvt
 install sublime
 	- dotfiles/fedora/install-sublime.sh
 
+install docker
+    - dotfiles/fedora/install-docker.sh
+    
+install chrome
+    - dotfiles/fedora/install-chrome.sh
+
 
 
 
