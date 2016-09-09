@@ -125,11 +125,11 @@ fi
 
 # some environment variables
 # TODO : move these to their own file?
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
-export PATH=$PATH:$JAVA_HOME
+export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
+export PATH=$PATH:$JAVA_HOME/bin
 
 export GRADLE_HOME=/usr/share/gradle
-export PATH=$PATH:$GRADLE_HOME
+export PATH=$PATH:$GRADLE_HOME/bin
 
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
