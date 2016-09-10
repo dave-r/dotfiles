@@ -107,6 +107,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# some helper utils
+if [ -f ~/.bash_utils ]; then
+    . ~/.bash_utils
+fi
+
 # docker config
 if [ -e ~/.dockerrc ]; then
     . ~/.dockerrc
