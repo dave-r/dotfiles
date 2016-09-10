@@ -28,6 +28,12 @@ if [[ -f $SCRIPT_DIR/.bash_aliases ]]
         chmod 700 $HOMEDIR/.bash_aliases      
 fi
 
+if [[ -f $SCRIPT_DIR/.bash_utils ]]
+    then
+        [[ -f $HOMEDIR/.bash_utils ]] && mv $HOMEDIR/.bash_utils $HOME_DIR/.backup-bash_utils-backup
+        chmod 700 $HOMEDIR/.bash_utils
+fi
+
 # install fonts
 if [[ -d $SCRIPT_DIR/../fonts ]]
     then
@@ -55,4 +61,3 @@ if [[ -f $SCRIPT_DIR/../git/.gitconfig ]]
         [[ -f $HOMEDIR/.gitconfig ]] && mv $HOMEDIR/.gitconfig $HOMEDIR/.backup-gitconfig-backup
         ln -s $SCRIPT_DIR/../git/.gitconfig $HOMEDIR/.gitconfig
 fi
-
