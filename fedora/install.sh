@@ -44,8 +44,8 @@ fi
 
 if [[ -f $SCRIPT_DIR/.bash_utils ]]
     then
-        [[ -f $HOMEDIR/.bash_utils ]] && mv $HOMEDIR/.bash_utils $HOME_DIR/.backup-bash_utils-backup
-        ln -s $SCRIPT_DIR/.bash_utils $HOME_DIR/.bash_utils
+        [[ -f $HOMEDIR/.bash_utils ]] && mv $HOMEDIR/.bash_utils $HOMEDIR/.backup-bash_utils-backup
+        ln -s $SCRIPT_DIR/.bash_utils $HOMEDIR/.bash_utils
         chmod 700 $HOMEDIR/.bash_utils
 fi
 
