@@ -24,6 +24,9 @@ getuser
 
 HOMEDIR="/home/$username"
 
+export username
+export HOMEDIR
+
 # update packages
 dnf -y update
 
