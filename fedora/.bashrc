@@ -139,3 +139,4 @@ export PATH=$PATH:$GRADLE_HOME/bin
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
+export PATH=$PATH:/opt/idea-IC-162.2032.8/bin
