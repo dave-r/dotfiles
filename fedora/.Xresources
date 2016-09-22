@@ -1,4 +1,5 @@
 ! urxvt
+URxvt*geometry: 140x40
 URxvt*buffered: true
 URxvt*cursorUnderline: true
 URxvt*cursorBlink: false
