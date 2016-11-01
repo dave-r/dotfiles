@@ -2,12 +2,17 @@
 
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
-# get the user name (not the root user running the script)
-username=""
-. $SCRIPT_DIR/getusername.sh
-getuser
+if [[ ! -v username ]]; then
+    # get the user name (not the root user running the script)
+    username=""
+    . $SCRIPT_DIR/getusername.sh
+    getuser
 
-HOMEDIR="/home/$username"
+    HOMEDIR="/home/$username"
+
+    export username
+    export HOMEDIR
+fi
 
 # install sublime 3
 

@@ -7,14 +7,17 @@
 # get the directory where the script is located
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
-# get the user name (not the root user running the script)
-username=""
-. $SCRIPT_DIR/getusername.sh
-getuser
+if [[ ! -v username ]]; then
+    # get the user name (not the root user running the script)
+    username=""
+    . $SCRIPT_DIR/getusername.sh
+    getuser
 
-HOMEDIR="/home/$username"
+    HOMEDIR="/home/$username"
 
-echo $HOMEDIR
+    export username
+    export HOMEDIR
+fi
 
 # install i3
 dnf -y install i3

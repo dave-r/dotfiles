@@ -1,5 +1,22 @@
 #!/bin/bash
 
+function install-all() {
+    echo "installing apps..."
+
+$SCRIPT_DIR/setup-sudo.sh
+$SCRIPT_DIR/install-i3.sh
+$SCRIPT_DIR/install-rxvt.sh
+$SCRIPT_DIR/install-sublime.sh
+$SCRIPT_DIR/install-docker.sh
+$SCRIPT_DIR/install-chrome.sh
+$SCRIPT_DIR/install-go.sh
+$SCRIPT_DIR/install-java.sh
+$SCRIPT_DIR/install-gradle.sh
+$SCRIPT_DIR/install-plank.sh
+$SCRIPT_DIR/install-arc.sh
+$SCRIPT_DIR/install-superflatremix.sh
+}
+
 # get the directory where the script is located
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
@@ -9,6 +26,9 @@ username=""
 getuser
 
 HOMEDIR="/home/$username"
+
+export username
+export HOMEDIR
 
 # update packages
 dnf -y update
@@ -26,6 +46,13 @@ if [[ -f $SCRIPT_DIR/.bash_aliases ]]
         [[ -f $HOMEDIR/.bash_aliases ]] && mv $HOMEDIR/.bash_aliases $HOMEDIR/.backup-bash_aliases-backup
         ln -s $SCRIPT_DIR/.bash_aliases $HOMEDIR/.bash_aliases  
         chmod 700 $HOMEDIR/.bash_aliases      
+fi
+
+if [[ -f $SCRIPT_DIR/.bash_utils ]]
+    then
+        [[ -f $HOMEDIR/.bash_utils ]] && mv $HOMEDIR/.bash_utils $HOMEDIR/.backup-bash_utils-backup
+        ln -s $SCRIPT_DIR/.bash_utils $HOMEDIR/.bash_utils
+        chmod 700 $HOMEDIR/.bash_utils
 fi
 
 # install fonts
@@ -56,3 +83,10 @@ if [[ -f $SCRIPT_DIR/../git/.gitconfig ]]
         ln -s $SCRIPT_DIR/../git/.gitconfig $HOMEDIR/.gitconfig
 fi
 
+while getopts ":a" opt; do
+    case $opt in
+        a)
+	  install-all
+        ;;
+    esac
+done

@@ -7,6 +7,7 @@ alias dpsa="docker ps -a"
 alias dlogs="docker logs"
 alias dimages="docker images"
 alias drmi="docker rmi"
+alias dc="docker-compose"
 alias dcbuild="docker-compose build"
 alias dcup="docker-compose up"
 alias dcstop="docker-compose stop"
@@ -14,6 +15,7 @@ alias dclogs="docker-compose logs"
 alias dcrm="docker-compose rm"
 alias dmls="docker-machine ls"
 alias dmstop="docker-machine stop"
+alias dcps="docker-compose ps"
 
 # remove all unused images
 function dcleanall {

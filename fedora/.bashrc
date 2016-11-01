@@ -107,6 +107,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# some helper utils
+if [ -f ~/.bash_utils ]; then
+    . ~/.bash_utils
+fi
+
 # docker config
 if [ -e ~/.dockerrc ]; then
     . ~/.dockerrc
@@ -134,3 +139,4 @@ export PATH=$PATH:$GRADLE_HOME/bin
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
+export PATH=$PATH:/opt/idea-IC-162.2032.8/bin

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# get the directory where the script is located
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
 if [[ ! -v username ]]; then
@@ -15,9 +14,13 @@ if [[ ! -v username ]]; then
     export HOMEDIR
 fi
 
-# install java
-dnf -y install java-1.8.0-openjdk
-dnf -y install java-1.8.0-openjdk-devel
+wget https://github.com/daniruiz/Super-Flat-Remix/archive/master.zip
 
-# set java home
-export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
+unzip ./master.zip
+
+[[ ! -d $HOMEDIR/.icons ]] && mkdir $HOMEDIR/.icons
+
+cp -r ./Super-Flat-Remix-master/Super\ Flat\ Remix $HOMEDIR/.icons
+
+rm master.zip
+rm -rf ./Super-Flat-Remix-master
