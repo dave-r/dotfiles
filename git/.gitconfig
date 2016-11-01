@@ -16,4 +16,11 @@
 	hist = log --pretty=format:'%C(red)%h%Creset %C(blue)%an [%ad]%Creset %s %C(yellow)%d%Creset' --decorate --abbrev-commit --stat
 	remotes = remote -v
 	s = status
+    c = commit
+    cm = commit -m 
+    cam = commit -a -m
+    ll = pull origin
+    sh = push origin
+    co = checkout
+    
 
