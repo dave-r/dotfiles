@@ -1,4 +1,0 @@
-#!/bin/bash
-
-export GOPATH=$HOME/dev/go
-export GOBIN=/usr/local/bin/go
