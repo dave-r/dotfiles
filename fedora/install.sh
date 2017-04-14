@@ -12,6 +12,9 @@ $SCRIPT_DIR/install-chrome.sh
 $SCRIPT_DIR/install-go.sh
 $SCRIPT_DIR/install-java.sh
 $SCRIPT_DIR/install-gradle.sh
+$SCRIPT_DIR/install-plank.sh
+$SCRIPT_DIR/install-arc.sh
+$SCRIPT_DIR/install-superflatremix.sh
 }
 
 # get the directory where the script is located
