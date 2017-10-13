@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo 'Installing rxvt'
+
 # get the directory where the script is located
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
@@ -15,9 +17,11 @@ if [[ ! -v username ]]; then
     export HOMEDIR
 fi
 
+echo 'dnf installing rxvt-unicode-256color'
 dnf -y install rxvt-unicode-256color
 
 # set up conf
+echo 'setting up .Xresources'
 if [[ -f $SCRIPT_DIR/.Xresources ]]
     then 
         [[ -f $HOMEDIR/.Xresources ]] && mv $HOMEDIR/.Xresources $HOMEDIR/.backup-xresources-backup

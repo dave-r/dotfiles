@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo 'setting up sudo access for cur user'
 # get the directory where the script is located
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 

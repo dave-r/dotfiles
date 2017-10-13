@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo 'Installing sublime'
+
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
 if [[ ! -v username ]]; then
@@ -14,32 +16,44 @@ if [[ ! -v username ]]; then
     export HOMEDIR
 fi
 
-# install sublime 3
+# install the gpg key
+echo 'installing sublime dnf repo gpg key'
+rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 
-# create a temp dir for holding install files
-mkdir $SCRIPT_DIR/subl-install
-cd $SCRIPT_DIR/subl-install
+# add the sublime rmp repo
+echo 'adding sublime dnf repo'
+dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 
-# download the package
-wget https://download.sublimetext.com/sublime_text_3_build_3114_x64.tar.bz2
+# install
+echo 'dnf installing sublime-text'
+dnf install sublime-text
 
-# install it
-tar -xvjf sublime_text_3_build_3114_x64.tar.bz2
-cd sublime_text_3
-mkdir -p /usr/local/sublime-text-3
+# # create a temp dir for holding install files
+# mkdir $SCRIPT_DIR/subl-install
+# cd $SCRIPT_DIR/subl-install
 
-mv -f ./* /usr/local/sublime-text-3/
-ln -s /usr/local/sublime-text-3/sublime_text /usr/local/bin/subl
-chmod +x /usr/local/bin/subl
+# # download the package
+# wget https://download.sublimetext.com/sublime_text_3_build_3114_x64.tar.bz2
 
-# clean up
-rm -rf $SCRIPT_DIR/subl-install
+# # install it
+# tar -xvjf sublime_text_3_build_3114_x64.tar.bz2
+# cd sublime_text_3
+# mkdir -p /usr/local/sublime-text-3
+
+# mv -f ./* /usr/local/sublime-text-3/
+# ln -s /usr/local/sublime-text-3/sublime_text /usr/local/bin/subl
+# chmod +x /usr/local/bin/subl
+
+# # clean up
+# rm -rf $SCRIPT_DIR/subl-install
 
 # create settings directories
+echo 'creating sublime settings directories'
 [[ ! -d $HOMEDIR/.config/sublime-text-3/Installed\ Packages ]] && mkdir -p $HOMEDIR/.config/sublime-text-3/Installed\ Packages
 [[ ! -d $HOMEDIR/.config/sublime-text-3/Packages/User ]] && mkdir -p $HOMEDIR/.config/sublime-text-3/Packages/User
 
 
+echo 'setting up sublime preferences'
 if [[ -f $SCRIPT_DIR/../sublime/Preferences.sublime-settings ]]
     then
         # backup any existing settings
@@ -55,4 +69,5 @@ if [[ -f $SCRIPT_DIR/../sublime/Preferences.sublime-settings ]]
 fi
 
 # Install package control
+echo 'installing package control'
 curl -o $HOMEDIR/.config/sublime-text-3/Installed\ Packages/Package\ Control.sublime-package https://packagecontrol.io/Package%20Control.sublime-package
