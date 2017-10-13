@@ -130,7 +130,7 @@ fi
 
 # some environment variables
 # TODO : move these to their own file?
-export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 export PATH=$PATH:$JAVA_HOME/bin
 
 export GRADLE_HOME=/usr/share/gradle
@@ -139,4 +139,3 @@ export PATH=$PATH:$GRADLE_HOME/bin
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
-export PATH=$PATH:/opt/idea-IC-162.2032.8/bin
