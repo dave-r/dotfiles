@@ -130,6 +130,8 @@ fi
 
 # some environment variables
 # TODO : move these to their own file?
+export EDITOR=vim
+
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -138,4 +140,6 @@ export PATH=$PATH:$GRADLE_HOME/bin
 
 export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
+
+export AWS_SDK_LOAD_CONFIG=true
 
