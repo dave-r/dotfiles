@@ -35,45 +35,6 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color|rxvt-unicode) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    #PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n\xE2\xA4\x87 \[\033[0m\]'
-    PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n-> \[\033[0m\]'
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    #PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n\xE2\xA4\x87 \[\033[0m\]'
-    PS1=$'\[\033[0;34m\]${debian_chroot:+($debian_chroot)}\u@\h: \w \n-> \[\033[0m\]'
-    ;;
-*)
-    ;;
-esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -88,6 +49,16 @@ fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# use powerline
+if [ -f `which powerline-daemon` ];
+then
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+
+	. /usr/share/powerline/bash/powerline.sh
+fi
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -128,18 +99,28 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# needed for ssh-agent systemd unit
+# that is located at ~/.config/systemd/user/
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # some environment variables
 # TODO : move these to their own file?
 export EDITOR=vim
 
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
-export PATH=$PATH:$JAVA_HOME/bin
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
+export PATH=$JAVA_HOME/bin:$PATH
 
-export GRADLE_HOME=/usr/share/gradle
-export PATH=$PATH:$GRADLE_HOME/bin
+export GRADLE_HOME=/opt/gradle/gradle-4.7
+export PATH=$GRADLE_HOME/bin:$PATH
 
 export GOPATH=$HOME/dev/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 
 export AWS_SDK_LOAD_CONFIG=true
 
+export PATH=$PATH:$HOME/kubernetes/bin
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
