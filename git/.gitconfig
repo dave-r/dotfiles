@@ -4,6 +4,7 @@
 	required = true
 [core]
 	editor = subl -n -w
+	autocrlf = input
 [user]
 	name = Dave R
 	email = dave@rouser.org
