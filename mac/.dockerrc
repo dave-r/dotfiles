@@ -22,16 +22,6 @@ alias dlogs="docker logs"
 alias dimages="docker images"
 alias drmi="docker rmi"
 alias ddangle="docker volume ls -f dangling=true"
-alias dcbuild="docker-compose build"
-alias dcup="docker-compose up"
-alias dcupb="docker-compose up --build"
-alias dcstop="docker-compose stop"
-alias dcdown="docker-compose down"
-alias dclogs="docker-compose logs"
-alias dcrm="docker-compose rm"
-alias dmls="docker-machine ls"
-alias dmstop="docker-machine stop"
-alias dmssh="docker-machine ssh"
 
 
 # remove all unused images
@@ -45,16 +35,5 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 # enter a bash shell in a running container
 function dbash {
 	docker exec -it $1 /bin/bash
-}
-
-# set docker-machine environment variables for a host
-function dmenv {
-	eval "$(docker-machine env $1)"
-}
-
-# start a docker host and update environment variables
-function dmstart {
-	docker-machine start $1
-	eval "$(docker-machine env $1)"
 }
 
