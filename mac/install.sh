@@ -16,17 +16,17 @@ cd $HOME
 [[ -f $HOME/.gorc ]] && rm -f $HOME/.gorc
 
 # link dotfiles
-ln -s $SCRIPT_DIR/.bashrc $HOME/.bashrc
-ln -s $SCRIPT_DIR/.bash_profile $HOME/.bash_profile
-ln -s $SCRIPT_DIR/.dockerrc $HOME/.dockerrc
-ln -s $SCRIPT_DIR/.coreosrc $HOME/.coreosrc
-ln -s $SCRIPT_DIR/../git/.gitconfig $HOME/.gitconfig
-ln -s $SCRIPT_DIR/.gorc $HOME/.gorc
+[[ -f $SCRIPT_DIR/.bashrc ]] && ln -s $SCRIPT_DIR/.bashrc $HOME/.bashrc
+[[ -f $SCRIPT_DIR/.bash_profile ]] && ln -s $SCRIPT_DIR/.bash_profile $HOME/.bash_profile
+[[ -f $SCRIPT_DIR/.dockerrc ]] && ln -s $SCRIPT_DIR/.dockerrc $HOME/.dockerrc
+[[ -f $SCRIPT_DIR/.coreosrc ]] && ln -s $SCRIPT_DIR/.coreosrc $HOME/.coreosrc
+[[ -f $SCRIPT_DIR/../git/.gitconfig ]] && ln -s $SCRIPT_DIR/../git/.gitconfig $HOME/.gitconfig
+[[ -f $SCRIPT_DIR/.gorc ]] && ln -s $SCRIPT_DIR/.gorc $HOME/.gorc
 
 # set permissions
-chmod 700 $HOME/.bashrc
-chmod 700 $HOME/.bash_profile
-chmod 700 $HOME/.dockerrc
-chmod 700 $HOME/.coreosrc
-chmod 700 $HOME/.gitconfig
-chmod 700 $HOME/.gorc
+[[ -f $SCRIPT_DIR/.bashrc ]] && chmod 700 $HOME/.bashrc
+[[ -f $SCRIPT_DIR/.bash_profile ]] && chmod 700 $HOME/.bash_profile
+[[ -f $SCRIPT_DIR/.dockerrc ]] && chmod 700 $HOME/.dockerrc
+[[ -f $SCRIPT_DIR/.coreosrc ]] && chmod 700 $HOME/.coreosrc
+[[ -f $SCRIPT_DIR/../git/.gitconfig ]] && chmod 700 $HOME/.gitconfig
+[[ -f $SCRIPT_DIR/.gorc ]] && chmod 700 $HOME/.gorc
