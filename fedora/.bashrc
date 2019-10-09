@@ -110,7 +110,7 @@ export EDITOR=vim
 export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
 export PATH=$JAVA_HOME/bin:$PATH
 
-export GRADLE_HOME=/opt/gradle/gradle-4.7
+export GRADLE_HOME=/opt/gradle/gradle-4.10.2
 export PATH=$GRADLE_HOME/bin:$PATH
 
 export GOPATH=$HOME/dev/go
@@ -124,3 +124,9 @@ export PATH=$PATH:$HOME/kubernetes/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google/google-cloud-sdk/path.bash.inc' ]; then . '/opt/google/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google/google-cloud-sdk/completion.bash.inc' ]; then . '/opt/google/google-cloud-sdk/completion.bash.inc'; fi
