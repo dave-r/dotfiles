@@ -8,6 +8,7 @@ cd $HOME
 #tar -cf $HOME/dotfiles-backup.tar $HOME/.bashrc $HOME/.bash_profile $HOME/.dockerrc $HOME/.gitconfig
 
 # remove existing dotfiles, link new dotfiles from this repo and set permissions 
+echo "Setting up dot files"
 [[ -f $HOME/.bashrc ]] && [[ -f $SCRIPT_DIR/.bashrc ]] && rm -f $HOME/.bashrc 
 [[ -f $SCRIPT_DIR/.bashrc ]] && ln -s $SCRIPT_DIR/.bashrc $HOME/.bashrc && chmod 700 $HOME/.bashrc
 
@@ -31,24 +32,33 @@ if [[ -z $(which ruby) ]]
 then
     echo 'Please install Ruby'
     exit 1
+else
+	echo 'Found Ruby'
 fi
 
 # install homebrew
 if [[ -z $(which brew) ]]
 then
+	echo 'Installing HomeBrew'
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+	echo 'Found HomeBrew'
 fi
 
 # install fonts
+echo 'Installing fonts'
 cp -R -f $SCRIPT_DIR/../fonts/Hack $HOME/Library/Fonts/
 
 # install iterm
+echo 'Installing iterm'
 brew cask install iterm2
 cp $SCRIPT_DIR/iterm/com.googlecode.iterm2.plist $HOME/Library/Preferences
 
 # install powerline
+echo 'Installing powerline'
 pip install --user powerline-status
 
 # install alfred
+echo 'Installing alfred'
 brew cask install alfred
 
