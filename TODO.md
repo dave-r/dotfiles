@@ -10,5 +10,6 @@
 * Install WebStorm
 * Install GoLand
 * Install Gradle
+* Install docker
 * Install Fusion 360
 * Install Quicken
