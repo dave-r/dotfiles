@@ -15,8 +15,11 @@ mkdir -p "$SUBL_SETTINGS"
 # remove settings file
 rm -f "$SUBL_SETTINGS/Preferences.sublime-settings"
 
-# create symlink to settings file
+# copy preferred settings in to place
 cp $SCRIPT_DIR/Preferences.sublime-settings "$SUBL_SETTINGS/"
 
-# symlink the color theme
+# put our custom keybinding(s) in place
+cp "$SCRIPT_DIR/Default (OSX).sublime-keymap" "$SUBL_SETTINGS/"
+
+# gotta have our color theme
 cp $SCRIPT_DIR/Solarized-dark.tmTheme "$SUBL_PACKAGES/"
