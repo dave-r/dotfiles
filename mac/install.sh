@@ -62,3 +62,7 @@ pip install --user powerline-status
 echo 'Installing alfred'
 brew cask install alfred
 
+# install sublime text
+echo 'Installing Sublime'
+$SCRIPT_DIR/sublime/install.sh
+
