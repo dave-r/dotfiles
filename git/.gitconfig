@@ -25,3 +25,9 @@
     co = checkout
     
 
+[pager]
+	branch = false
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true

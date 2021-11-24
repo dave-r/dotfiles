@@ -66,3 +66,30 @@ brew cask install alfred
 echo 'Installing Sublime'
 $SCRIPT_DIR/sublime/install.sh
 
+# install go
+echo 'Installing go'
+brew install go
+mkdir -p $HOME/dev/go/bin
+mkdir -p $HOME/dev/go/src
+
+# install java
+echo 'Installing java'
+brew cask install java
+
+# install gradle
+echo 'Installing gradle'
+brew install gradle
+
+# install docker
+echo 'Installing docker'
+brew cask install docker
+
+# install idea
+echo 'Installing Intellij Idea'
+brew cask install intellij-idea
+
+# install webstorm
+echo 'Installing WebStorm'
+brew cask install webstorm
+
+
