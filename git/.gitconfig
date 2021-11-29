@@ -3,7 +3,7 @@
 	smudge = git lfs smudge %f
 	required = true
 [core]
-	editor = subl -n -w
+	editor = code --wait
 	autocrlf = input
 [user]
 	name = Dave R
@@ -23,8 +23,6 @@
     ll = pull origin
     sh = push origin
     co = checkout
-    
-
 [pager]
 	branch = false
 [init]
