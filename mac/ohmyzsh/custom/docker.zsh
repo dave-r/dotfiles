@@ -26,7 +26,7 @@ alias ddangle="docker volume ls -f dangling=true"
 
 # remove all unused images
 function dcleanall {
-	docker rmi $(docker images -q --filter 'dangling=true')
+	docker image prune --all
 }
 
 # get the ip address of a running container

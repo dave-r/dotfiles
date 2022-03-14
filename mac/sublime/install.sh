@@ -3,7 +3,7 @@
 SCRIPT_DIR=$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)
 
 # install sublime
-brew cask install sublime-text
+brew install --cask sublime-text
 
 # Directory where sublime settings are stored
 SUBL_PACKAGES="$HOME/Library/Application Support/Sublime Text 3/Packages"
